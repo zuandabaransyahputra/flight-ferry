@@ -1,9 +1,10 @@
 import React from "react";
 import CardInfo from "../Card/CardInfo";
+import { dataCard } from "./data";
 
 const Info = () => {
   return (
-    <section className="mt-[139px] w-full px-6 lg:px-[100px] xl:px-[144px] flex flex-col gap-[61px]">
+    <section className="mt-[250px] xl:mt-[139px] w-full px-6 lg:px-[100px] xl:px-[144px] flex flex-col gap-[61px]">
       <div className="flex flex-col gap-[16px]">
         <h2 className="text-[#00084F] font-bold text-2xl md:text-3xl lg:text-5xl">
           Coimbatore - Chennai
@@ -18,8 +19,19 @@ const Info = () => {
         </div>
       </div>
       <div className="flex lg:flex-col gap-[30px] overflow-auto lg:overflow-visible">
-        {[0, 1].map((item) => (
-          <CardInfo key={item} />
+        {dataCard.map((item) => (
+          <CardInfo
+            key={item.id}
+            name={item.name}
+            weight={item.weight}
+            flightNumber={item.flightNumber}
+            bookingReference={item.bookingReference}
+            imgUrl={item.imgUrl}
+            tripFrom={item.tripFrom}
+            tripTo={item.tripTo}
+            timeFrom={item.timeFrom}
+            timeTo={item.timeTo}
+          />
         ))}
       </div>
     </section>

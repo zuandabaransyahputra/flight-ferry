@@ -3,13 +3,35 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "@nextui-org/react";
 
-const CardInfo = () => {
+interface CardInfoProps {
+  name: string;
+  weight: string | number;
+  flightNumber: string | number;
+  bookingReference: string;
+  imgUrl: string;
+  tripFrom: string;
+  tripTo: string;
+  timeFrom: string;
+  timeTo: string;
+}
+
+const CardInfo = ({
+  name,
+  weight,
+  flightNumber,
+  bookingReference,
+  imgUrl,
+  tripFrom,
+  tripTo,
+  timeFrom,
+  timeTo,
+}: CardInfoProps) => {
   return (
     <div className="p-[30px] min-w-[350px] flex flex-col gap-[30px] w-full bg-white shadow-lg rounded-[20px]">
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-[25px] xl:gap-[82.75px] justify-between">
         <div className="flex gap-[24px]">
           <Image
-            src="https://s3-alpha-sig.figma.com/img/4eb1/4b02/61802b25e543f0595b8c08e4b4902fcf?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VRaM9tHE6pMgR~g2a~U6acEV-iC~UY50b3352lgfeooH6g6aT9CQHpYMM3yBNwk3Gd3623xcbRBFs3teo6-J2faPGXVx5q7CdG3shtq2jLLuKiHfqRb0usL1cEI7RRoOckB3WcP9wwMi9L3~1iGOAP-m8~w-36Pg-V0E3MHijm6CgeG63-4HR45YIabsx8a033D0cDXLaZKNIALi5idr4c~iw9AfBySe1J9GmwHBjhXcYF8TKoQYKHngVCGavmlCLyFuTLcttBBQIlU0cKe19bO97EpiFIcVmUaoVBWss51QNjSQaSG6q-nNwLdF4YCjUlByGOYZCZJ1RuU4PxcnGQ__"
+            src={imgUrl}
             alt="Avatar"
             width={100}
             height={100}
@@ -17,10 +39,11 @@ const CardInfo = () => {
           />
           <div className="flex flex-col gap-[10px]">
             <h4 className="text-[#00084F] font-semibold text-lg md:text-xl">
-              Thomas David
+              {name}
             </h4>
             <h6 className="font-semibold text-black text-sm md:text-[16px]">
-              Weight availability: <span className="font-normal">10kg</span>
+              Weight availability:{" "}
+              <span className="font-normal">{weight}kg</span>
             </h6>
           </div>
         </div>
@@ -30,10 +53,11 @@ const CardInfo = () => {
             Trip Details:
           </h4>
           <h6 className="font-semibold text-black text-sm md:text-[16px]">
-            Flight Number: <span className="font-normal">3536325284</span>
+            Flight Number: <span className="font-normal">{flightNumber}</span>
           </h6>
           <h6 className="font-semibold text-black text-sm md:text-[16px]">
-            Booking Reference number: <span className="font-normal">64683</span>
+            Booking Reference number:{" "}
+            <span className="font-normal">{bookingReference}</span>
           </h6>
         </div>
         <div className="w-[1px] h-[82px] bg-[#6780AB] hidden lg:block" />
@@ -43,10 +67,10 @@ const CardInfo = () => {
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-[75px] xl:gap-[100px]">
           <div className="flex flex-col gap-1 lg:gap-[8px] lg:items-center">
             <h3 className="text-lg lg:text-2xl text-[#112211] font-semibold">
-              11:00 pm
+              {timeFrom} pm
             </h3>
             <p className="text-[#112211] font-medium text-sm lg:text-[16px] text-opacity-60">
-              Coimbatore
+              {tripFrom}
             </p>
           </div>
           <div className="flex justify-center lg:justify-start items-center gap-[24px]">
@@ -67,10 +91,10 @@ const CardInfo = () => {
           </div>
           <div className="flex flex-col gap-1 lg:gap-[8px] items-end lg:items-center">
             <h3 className="text-lg lg:text-2xl text-[#112211] font-semibold">
-              12:00 pm
+              {timeTo} am
             </h3>
             <p className="text-[#112211] font-medium text-sm lg:text-[16px] text-opacity-60">
-              Chennai
+              {tripTo}
             </p>
           </div>
         </div>

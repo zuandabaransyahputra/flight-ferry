@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.datepicker-custom > div {
+  @apply bg-white border border-[#BCBCBC];
+}
+
+.datepicker-custom div > span {
+  @apply absolute top-[-8px] w-[35px] bg-white;
+}
